@@ -299,7 +299,7 @@ pub fn olaf_store_cached_files(allocator: std.mem.Allocator, cache_files: []cons
 
     // Path configuration
     const c_db_folder = try allocator.dupeZ(u8, config.db_folder);
-    c_config.*.dbFolder = c_db_folder;
+    c_config.*.dbFolder = c_db_folder.ptr;
     defer allocator.free(c_db_folder);
 
     // Open database
@@ -325,7 +325,7 @@ pub fn olaf_has(allocator: std.mem.Allocator, audio_identifiers: []const []const
 
     // Path configuration
     const c_db_folder = try allocator.dupeZ(u8, config.db_folder);
-    c_config.*.dbFolder = c_db_folder;
+    c_config.*.dbFolder = c_db_folder.ptr;
     defer allocator.free(c_db_folder);
 
     // Convert audio identifiers to C strings
