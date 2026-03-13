@@ -75,7 +75,7 @@ pub fn execute(allocator: std.mem.Allocator, args: *types.Args) !void {
         // Read first line to extract audio filename
         const audio_filename = blk: {
             // Read entire file (cache files contain only metadata, so they're small)
-            const content = try fs.cwd().readFileAlloc(allocator, cache_file_path, 1024 * 1024); // 1MB max
+            const content = try fs.cwd().readFileAlloc(allocator, cache_file_path, 1024 * 1024 * 64); // 64MB max
             defer allocator.free(content);
 
             // Get first line
