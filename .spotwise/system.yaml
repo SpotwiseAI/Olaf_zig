@@ -1,0 +1,11 @@
+# Source: _inbox/Olaf_zig.md (upstream OLAF README) + INVENTORY.md.
+# Vendored upstream OLAF C library (Joren Six, IPEM/Ghent). Build dependency
+# of sw_olaf_server — the Dockerfile in that repo compiles the `olaf` CLI from
+# this source. Not a runtime system in its own right.
+system: olaf-zig
+repo: Olaf_zig
+owner: devops
+type: library
+
+runtime:
+  language: c  # core C; build via Make or Zig
